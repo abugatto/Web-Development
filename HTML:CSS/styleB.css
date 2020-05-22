@@ -1,0 +1,34 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+.container {
+	display: flex;
+    min-height: 100%;
+    white-space: nowrap;
+}
+
+.box {
+	background-color: #eeeff2;
+	font-family: "Tahoma", sans-serif;
+	position:relative;
+	width: 90px;
+	height: 140px;
+	font-size: 40px;
+	margin: 5px;
+	padding: 10px 0 0 10px;
+	border-left: 10px dotted #D0D0FF;
+}
+
+.box:hover {
+	background-color: yellow;
+	color: goldenrod;
+	cursor: pointer;
+}
+
+.F {
+	position:absolute;
+    bottom:0;
+    right:0;
+}
