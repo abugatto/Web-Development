@@ -1,0 +1,39 @@
+table {
+	table-layout: fixed;
+    width: 270px;
+
+	border: .5px solid black;
+	border-radius: 15px;
+	border-spacing: 0px;
+	background: white;
+	box-shadow: 3px 3px rgba(0,0,0,.3);
+
+	font-size: 1rem;
+  	font-family: sans-serif;
+  	color: black;
+	text-align: center;
+
+	cursor: default;
+}
+
+#Header {
+	border-radius: 10px;
+	height: 25px;
+	font-weight: bold;
+	background: #ababab;
+}
+
+#LeftArrow {
+	border-top-left-radius: 10px;
+	cursor: pointer;
+}
+
+#RightArrow {
+	border-top-right-radius: 10px;
+	cursor: pointer;
+}
+
+#WeekdayRow {
+	color: #333333;
+	font-weight: bold;
+}
