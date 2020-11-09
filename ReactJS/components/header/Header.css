@@ -1,0 +1,24 @@
+/*
+CSS for the CS142 project #4 Problem #2 states component
+
+Since CSS uses a global name space for classes we should use names starting with
+cs142-header- here.
+*/
+
+.header-Container {
+    background-color: #ffffff;
+    color: #ffffff;
+
+    border-color: #000000;
+    border-style: solid;
+    border-width: 2vw;
+    padding: 1vw;
+    
+    text-align: center;
+}
+
+.header-title {
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 8vw;
+    color: rgb(0, 0, 0);
+}

@@ -23,6 +23,7 @@ class Example extends React.Component {
     // We read the example model data into the state variable 'name'
     this.state = {
       name: window.cs142models.exampleModel().name,
+      motto: window.cs142models.exampleModel().motto,
       counter: 0,
       inputValue: '',
       buttonWasClicked: '',
@@ -36,6 +37,7 @@ class Example extends React.Component {
     // Note: A commmon idiom in React code is to use JavaScript bind() to
     // smash the method to accomplish this passthrough to the method:
     //      this.handleChange = this.handleChange.bind(this);
+    this.handleMottoBound = event => this.handleMotto(event);
   }
 
   // React components have several "lifecycle functions"
@@ -69,6 +71,10 @@ class Example extends React.Component {
     this.setState({ inputValue: event.target.value });
   }
 
+  handleMotto(event) {
+    this.setState({ motto: event.target.value });
+  }
+
   // Method called when the button is pushed
   /* eslint-disable-next-line no-unused-vars */
   handleButtonClick(buttonName, event) {
@@ -97,18 +103,33 @@ class Example extends React.Component {
     return retVal;
   }
 
+  //nbsp is non breaking space
   render() {
     return (
       <div className="container Example">
-        <h1>CS142 Project#4 React.js Example</h1>
-
         <div className="motto-update">
-          {/* Your problem #1 motto displaying and updating widget goes here */}
+          <p className="example-title-name"> {this.state.name} </p>
+          <p className="example-title-image">
+            <input type="image" src="modelData/legday.jpg" alt="Submit" width="75" height="100"></input>
+          </p>
+          <p className="example-title-motto"> &ldquo; {this.state.motto} &rdquo; </p>
         </div>
+        
+        <p className="example-title-motto-input">
+          <label htmlFor="inId0"> Change Motto: </label>
+          <input
+            id="inId0"
+            type="text"
+            defaultValue={this.state.motto}
+            onChange={this.handleMottoBound}
+          />
+        </p>
+
+        <h1>CS142 Project#4 React.js Example</h1>
 
         <p>
           This view is an example of a
-          &nbsp;
+          &nbsp; 
           <a href="https://reactjs.org/docs/react-component.html" target="_blank" rel="noopener noreferrer">
             React.js Component
           </a>
@@ -164,7 +185,7 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`<p>My name is "{this.state.name}".</p>`
+              `<p>My name is "{this.state.name}".</p>`
             }
           </code>
         </pre>
@@ -206,27 +227,27 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`function outOfBandJSX(option) {
-  var optionJSX;
-  if (option) {
-    optionJSX = <div>Option was True</div>;
-  } else {
-    optionJSX  = <div>Option was False</div>;
-  }
-  var listItems = [];
-  for (var i = 0; i < 3; i++) {
-    listItems[i] = <li key={i}>List Item {i}</li>;
-  }
-  var retVal =
-    <div>
-      {optionJSX}
-      <ul>
-        {listItems}
-      </ul>
-    </div>;
+              `function outOfBandJSX(option) {
+                var optionJSX;
+                if (option) {
+                  optionJSX = <div>Option was True</div>;
+                } else {
+                  optionJSX  = <div>Option was False</div>;
+                }
+                var listItems = [];
+                for (var i = 0; i < 3; i++) {
+                  listItems[i] = <li key={i}>List Item {i}</li>;
+                }
+                var retVal =
+                  <div>
+                    {optionJSX}
+                    <ul>
+                      {listItems}
+                    </ul>
+                  </div>;
 
-  return retVal;
-}`
+                return retVal;
+              }`
             }
           </code>
         </pre>
@@ -252,12 +273,12 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`<div>
-  option ? <div>Option was True</div> : <div>Option was False</div> }
-  <ul>
-    {[0,1,2].map((i) =>  <li key={i}>List Item {i}</li>)}
-  </ul>
-</div>`
+              `<div>
+                option ? <div>Option was True</div> : <div>Option was False</div> }
+                <ul>
+                  {[0,1,2].map((i) =>  <li key={i}>List Item {i}</li>)}
+                </ul>
+              </div>`
             }
           </code>
         </pre>
@@ -270,18 +291,18 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`<div>
-  <p>A paragraph will appear between this paragraph</p>
-  {
-    this.state.inputValue && (
-      <p>This text will appear when this.state.inputValue is truthy.
-        this.state.inputValue === {this.state.inputValue}
-      </p>
-    )
-  }
-  <p>... and this one when some characters are typed into the input box below.</p>
-</div>
-`
+              `<div>
+                <p>A paragraph will appear between this paragraph</p>
+                {
+                  this.state.inputValue && (
+                    <p>This text will appear when this.state.inputValue is truthy.
+                      this.state.inputValue === {this.state.inputValue}
+                    </p>
+                  )
+                }
+                <p>... and this one when some characters are typed into the input box below.</p>
+              </div>
+              `
             }
           </code>
         </pre>
@@ -313,8 +334,8 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`<label htmlFor="inId">Input Field: </label>
-<input type="text" value={this.state.inputValue} onChange={this.handleChangeBound} />`
+              `<label htmlFor="inId">Input Field: </label>
+              <input type="text" value={this.state.inputValue} onChange={this.handleChangeBound} />`
             }
           </code>
         </pre>
@@ -358,26 +379,26 @@ class Example extends React.Component {
         <pre className="cs142-example-code">
           <code className="language-jsx">
             {
-`<div className="cs142-example-output">
-  <p>Test button clicks.
-    {
-      this.state.buttonWasClicked &&
-      <span>Last button clicked was: {this.state.buttonWasClicked}</span>
-    }
-  </p>
-  <button
-    type="button"
-    onClick={e => this.handleButtonClick("one", e)}
-  >
-    Call handleButtonClick function with one
-  </button>
-  <button
-    type="button"
-    onClick={e => this.handleButtonClick("two", e)}
-  >
-    Call handleButtonClick function with two
-  </button>
-</div>`
+              `<div className="cs142-example-output">
+                <p>Test button clicks.
+                  {
+                    this.state.buttonWasClicked &&
+                    <span>Last button clicked was: {this.state.buttonWasClicked}</span>
+                  }
+                </p>
+                <button
+                  type="button"
+                  onClick={e => this.handleButtonClick("one", e)}
+                >
+                  Call handleButtonClick function with one
+                </button>
+                <button
+                  type="button"
+                  onClick={e => this.handleButtonClick("two", e)}
+                >
+                  Call handleButtonClick function with two
+                </button>
+              </div>`
             }
           </code>
         </pre>

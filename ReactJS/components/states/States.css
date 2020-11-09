@@ -4,3 +4,53 @@ CSS for the CS142 project #4 Problem #2 states component
 Since CSS uses a global name space for classes we should use names starting with
 cs142-states- here.
 */
+
+.states-searchbar {
+    background-color: #e97c7c;
+    color: #ffffff;
+    padding: 1.5vw;
+  
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+}
+
+.states-list-display {
+    background-color: #7ca2e9;
+    color: #ffffff;
+    padding: 1.5vw;
+}
+
+.states-list-header {
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+}
+
+/* List */
+.states-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 1vw;
+    row-gap: 1.5vw;
+    align-items: center;
+}
+
+.states-list-item {
+    background: #ffffff;
+    height: 5vw;
+    width: 20vw;
+
+    padding: 1vw;
+    border-radius: .5vw;
+    margin: 1vw auto;
+  
+    font-family: sans-serif;
+    color: black;
+    overflow-x: auto;
+    text-align: center;
+}
+
+.states-list-item:hover {
+    border: .5vw solid rgb(253, 255, 128);
+}

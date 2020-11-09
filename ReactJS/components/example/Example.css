@@ -32,3 +32,34 @@ you use won't conflict with these names.
 .cs142-code-name {
   font-family: Courier New, monospace;
 }
+
+.motto-update {
+  margin: 0 auto;
+  width: 230px;
+
+  border: .5px solid black;
+	border-radius: 15px;
+	border-spacing: 0px;
+  background: #0bd867;
+  box-shadow: 3px 3px rgba(5, 114, 47, 0.76);
+
+  font-family: sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.example-title-name {
+  border-radius: 10px;
+  height: 25px;
+  
+  font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.example-title-motto {
+  font-size: 1rem;
+}
+
+.example-title-motto-input {
+  text-align: center;
+}
