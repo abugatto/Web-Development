@@ -5,7 +5,7 @@
  * on a hard code (see portno below) port. To start the webserver run the command:
  *    node webServer.js
  *
- * Note that anyone able to connect to localhost:3001 will be able to fetch any file accessible
+ * Note that anyone able to connect to localhost:3000 will be able to fetch any file accessible
  * to the current user in the current directory or any of its children.
  */
 
