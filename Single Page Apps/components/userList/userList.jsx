@@ -38,7 +38,7 @@ class UserList extends React.Component {
         <ListItem
           button
           selected={this.index === i}
-          onClick={event => handleListItemClick(i)}
+          onClick={i => handleListItemClick(i)}
         >
           <ListItemText primary={`${users[i].first_name} ${users[i].last_name}`} />
         </ListItem>

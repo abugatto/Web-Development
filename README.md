@@ -32,12 +32,12 @@ Common Bugs:
             "webpack": "^4.43.0",
             "webpack-cli": "^3.1.2"
         ```
-    3. Use when not recognizing jsx: 
+    3. Use when not recognizing jsx: <br />
         ```npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react```
-        or
+        <br /> or <br />
         ```npm install babel-loader babel-core@^7.0.0-bridge @babel/core --save-dev```
 * Remove fsevents from node_modules
-* USE WITH NODEMON to kill hanging processes: 
+* USE WITH NODEMON to kill hanging processes: <br />
     ```sudo kill -9 $(ps aux | grep '[n]ode' | awk '{print $2}```
     - The ps gives you the list of all the processes.
     - The grep filters that based on your search string
