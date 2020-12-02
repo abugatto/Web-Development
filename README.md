@@ -4,14 +4,14 @@ Projects for Stanford CS 142
 Common Bugs: 
 * If react isn't being recognized:
     1. Make .bashrc file with:
-        '''{
+        ```{
             "presets": [
                 "@babel/preset-env",
                 "@babel/preset-react"
             ]
-        }'''
+        }```
     2. In package.json replace devDependancies with:
-        '''
+        ```
             "@babel/core": "^7.10.2",
             "@babel/preset-env": "^7.10.2",
             "@babel/preset-react": "^7.10.1",
@@ -31,14 +31,14 @@ Common Bugs:
             "style-loader": "^0.23.0",
             "webpack": "^4.43.0",
             "webpack-cli": "^3.1.2"
-        '''
+        ```
     3. Use when not recognizing jsx: 
-        '''npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react'''
+        ```npm install -D babel-loader @babel/core @babel/preset-env @babel/preset-react```
         or
-        '''npm install babel-loader babel-core@^7.0.0-bridge @babel/core --save-dev'''
+        ```npm install babel-loader babel-core@^7.0.0-bridge @babel/core --save-dev```
 * Remove fsevents from node_modules
 * USE WITH NODEMON to kill hanging processes: 
-    '''sudo kill -9 $(ps aux | grep '[n]ode' | awk '{print $2}')'''
+    ```sudo kill -9 $(ps aux | grep '[n]ode' | awk '{print $2}```
     - The ps gives you the list of all the processes.
     - The grep filters that based on your search string
         * [n] is a trick to stop you picking up the actual grep process itself.
