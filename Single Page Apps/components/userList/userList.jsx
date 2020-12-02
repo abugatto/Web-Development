@@ -22,7 +22,7 @@ class UserList extends React.Component {
     };
 
     //Bind event handler for user link
-    this.handleUserItemClick = (event, newIndex) => this.handleUserItemClick.bind(this, newIndex);
+    this.handleUserItemClickBound = newIndex => this.handleUserItemClick.bind(this, newIndex);
   }
 
   handleUserItemClick(newIndex) {
@@ -33,12 +33,13 @@ class UserList extends React.Component {
     //Append all formatted users to list from model data
     const userList = [];
     const users = window.cs142models.userListModel();
+    console.log(users[0]);
     for(let i = 0; i < users.length; i++) {
-      userList.puch((
+      userList.push((
         <ListItem
           button
           selected={this.index === i}
-          onClick={i => handleListItemClick(i)}
+          onClick={(i) => handleUserItemClickBound(i)}
         >
           <ListItemText primary={`${users[i].first_name} ${users[i].last_name}`} />
         </ListItem>

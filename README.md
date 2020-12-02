@@ -4,12 +4,14 @@ Projects for Stanford CS 142
 Common Bugs: 
 * If react isn't being recognized:
     1. Make .bashrc file with:
-        ```{
-            "presets": [
-                "@babel/preset-env",
-                "@babel/preset-react"
-            ]
-        }```
+        ```
+            {
+                "presets": [
+                    "@babel/preset-env",
+                    "@babel/preset-react"
+                ]
+            }
+        ```
     2. In package.json replace devDependancies with:
         ```
             "@babel/core": "^7.10.2",
