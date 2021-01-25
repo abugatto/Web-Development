@@ -13,6 +13,18 @@ import UserPhotos from './components/userPhotos/UserPhotos';
 class PhotoShare extends React.Component {
   constructor(props) {
     super(props);
+
+    //states
+    this.state = {
+      currentUserId: null
+    };
+
+    //currentUserId handler
+    this.onUserChangeBound = userid => this.onUserChange.bind(this, userid);
+  }
+
+  onUserChange(userid) {
+    this.setState({ currentUserId: userid });
   }
 
   render() {
@@ -21,18 +33,23 @@ class PhotoShare extends React.Component {
         <div>
           <Grid container spacing={8}>
             <Grid item xs={12}>
-              <TopBar/>
+              <TopBar 
+                userId={this.state.currentUserId}
+                onUserChange={this.onUserChangeBound}
+              />
             </Grid>
             <div className="cs142-main-topbar-buffer"/>
             <Grid item sm={3}>
               <Paper  className="cs142-main-grid-item">
-                <UserList />
+                <UserList
+                  onUserChange={this.onUserChangeBound}
+                />
               </Paper>
             </Grid>
             <Grid item sm={9}>
               <Paper className="cs142-main-grid-item">
                 <Switch>
-                <Route exact path="/"
+                  <Route exact path="/"
                     render={() =>
                       <Typography variant="body1">
                       Welcome to your photosharing app! This <a href="https://material-ui.com/demos/paper/">Paper</a> component
@@ -43,10 +60,10 @@ class PhotoShare extends React.Component {
                       so you should delete this Route component once you get started.
                       </Typography>}
                   />
-                  <Route path="/users/:userId"
+                  <Route exact path="/users/:userId"
                     render={ props => <UserDetail {...props} /> }
                   />
-                  <Route path="/photos/:userId"
+                  <Route exact path="/users/:userId/photos"
                     render ={ props => <UserPhotos {...props} /> }
                   />
                   <Route path="/users" component={UserList}  />

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import './TopBar.css';
 
 /**
@@ -11,12 +13,26 @@ class TopBar extends React.Component {
   }
 
   render() {
+    const user = window.cs142models.userModel(this.props.userId);
+    const fullname = user ? user.first_name + ' ' + user.last_name : null;
+
     return (
       <AppBar className="cs142-topbar-appBar" position="absolute">
         <Toolbar>
-          <Typography variant="h5" color="inherit">
+          <Link 
+            style={{textDecoration: 'none', color:'inherit'}} 
+            to='/'
+            onClick={this.props.onUserChange(null)}
+          > 
+            <Typography variant="h4" color="inherit" style={{ flex: 1 }}>
               The Facebook
-          </Typography>
+            </Typography>
+          </Link>
+          <div style={{marginLeft: 'auto',}}>
+            <Typography variant="h5" color="inherit">
+              {fullname}
+            </Typography>
+          </div>
         </Toolbar>
       </AppBar>
     );

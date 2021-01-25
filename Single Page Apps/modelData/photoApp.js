@@ -62,8 +62,8 @@
              "And there are many paths to tread. Through shadow, to the edge of night, " + 
              "until the stars are all alight... Mist and shadow, cloud and shade, " + 
              "all shall fade... all... shall... fade... ", occupation: "Thain"};
-   var rk = {_id: "57231f1a30e4351f4e9f4bda", first_name: "Rey", last_name: "Kenobi", 
-             location: "D'Qar", description: "Excited to be here!", occupation: "Rebel"};
+   var rk = {_id: "57231f1a30e4351f4e9f4bda", first_name: "Rey", last_name: "Palpatine", 
+             location: "Jedi Temple, Akh To", description: "Excited to be here!", occupation: "Jedi"};
    var al = {_id: "57231f1a30e4351f4e9f4bdb", first_name: "April", last_name: "Ludgate", 
              location: "Pawnee, IN", description: "Witch", occupation: "Animal Control"};
    var jo = {_id: "57231f1a30e4351f4e9f4bdc", first_name: "John", last_name: "Ousterhout",
@@ -186,6 +186,7 @@
    var comments = [comment1, comment2, comment3, comment4, comment5, comment6, comment7, 
    comment8, comment9, comment10, comment11, comment12, comment13];
 
+   //loop through comments and push each comment to each corresponding photo's comment list
    comments.forEach(function (comment) {
       var photo = photos.filter(function (photo) {
          return (photo._id === comment.photo_id);

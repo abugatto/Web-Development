@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
-  Typography
+  Divider,
+  Typography,
+  Button
 } from '@material-ui/core';
 import './userDetail.css';
-
 
 /**
  * Define UserDetail, a React componment of CS142 project #5
@@ -14,15 +16,32 @@ class UserDetail extends React.Component {
   }
 
   render() {
+    const user = window.cs142models.userModel(this.props.match.params.userId);
+    const fullname = user.first_name + ' ' + user.last_name;
+
     return (
-      <Typography variant="body1">
-        This should be the UserDetail view of the PhotoShare app. Since
-        it is invoked from React Router the params from the route will be
-        in property match. So this should show details of user:
-        {this.props.match.params.userId}. You can fetch the model for the
-        user from window.cs142models.userModel(userId).
-      </Typography>
+      <div>
+        <Typography variant="h5"> {fullname} </Typography>
+        <Typography variant="subtitle1"> 
+          {user.location} 
+        </Typography>
+        <Typography variant="body1">
+          <b>Occupation:</b> {user.occupation}
+        </Typography>
+        <Typography variant="body1">
+          <b className="userDetail-description">Description: </b> 
+          <span className="userDetail-description" dangerouslySetInnerHTML={{ __html: user.description}} />
+        </Typography>
+        <Divider />
+        <Button 
+          component={RouterLink} 
+          to={'/users/' + user._id + '/photos'}
+        > 
+          Photo Gallery
+        </Button>
+      </div>
     );
+    //put mini post array at end
   }
 }
 
